@@ -1,7 +1,8 @@
 class Book
-  attr_reader(:title)
+  attr_reader(:title, :id)
   define_method(:initialize) do |info|
     @title = info.fetch(:title)
+    @id = info.fetch(:id)
   end
 
   define_singleton_method(:all) do
@@ -15,4 +16,12 @@ class Book
     books
   end
 
+  define_method(:save) do
+    result = DB.exec("INSERT INTO books (title) VALUES ('#{@title}') RETURNING id;")
+    @id = result.first.fetch("id").to_i
+  end
+
+  define_method(:==) do |other_book|
+    self.title == other_book.title && self.id == other_book.id
+  end
 end
