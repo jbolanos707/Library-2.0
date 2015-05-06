@@ -20,4 +20,22 @@ describe Author do
       expect(Author.all).to eq([])
     end
   end
+
+  describe '#save' do
+    it 'stores the author info into the database' do
+      test_author = Author.new(name: "J.K Rowling", id: nil)
+      test_author.save
+      expect(Author.all).to eq([test_author])
+    end
+  end
+
+  describe '#==' do
+    it 'is the same author if the name and id are the same' do
+      test_author = Author.new(name: "J.K Rowling", id: nil)
+      test_author1 = Author.new(name: "J.K Rowling", id: nil)
+      expect(test_author).to eq(test_author1)
+    end
+  end
+
+
 end
