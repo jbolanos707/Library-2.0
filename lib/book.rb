@@ -31,4 +31,10 @@ class Book
     @title = result.first.fetch("title")
     Book.new(title: @title, id: @id)
   end
+
+  define_method(:update) do |info|
+    @title = info.fetch(:title)
+    @id = self.id
+    DB.exec("UPDATE books SET title = '#{@title}' WHERE id = #{@id};")
+  end
 end

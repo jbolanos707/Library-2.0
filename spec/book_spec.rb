@@ -40,4 +40,13 @@ describe Book do
     end
   end
 
+  describe '.update' do
+    it 'updates the name of a book' do
+      test_book1 = Book.new(title: "Harry Potter", id: nil)
+      test_book1.save
+      test_book1.update(title: "Jane Austen")
+      expect(test_book1.title).to(eq("Jane Austen"))
+    end
+  end
+
 end
