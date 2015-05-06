@@ -7,4 +7,10 @@ describe Book do
       expect(test_book.title()).to(eq("Harry Potter"))
     end
   end
+
+  describe '.all' do
+    it 'returns all the books from the database' do
+      expect(Book.all).to(eq([]))
+    end
+  end
 end
