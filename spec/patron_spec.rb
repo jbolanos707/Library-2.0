@@ -15,4 +15,10 @@ describe Patron do
       expect(test_id.id).to eq(1)
     end
   end
+
+  describe '.all' do
+    it 'starts with no patrons' do
+      expect(Patron.all).to eq([])
+    end
+  end
 end
