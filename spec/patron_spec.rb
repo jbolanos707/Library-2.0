@@ -20,5 +20,13 @@ describe Patron do
     it 'starts with no patrons' do
       expect(Patron.all).to eq([])
     end
+
+  describe '.find' do
   end
-end
+
+
+  describe '#save' do
+  end
+
+  desribe '#==' do
+  end

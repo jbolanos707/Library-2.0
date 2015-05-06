@@ -1,5 +1,5 @@
 class Patron
-  attr_reader(:name, :id)
+  attr_reader(:name, :id, :)
 
   define_method(:initialize) do |attributes|
     @name = attributes.fetch(:name)
@@ -16,4 +16,5 @@ class Patron
     end
     patrons
   end
+  
 end

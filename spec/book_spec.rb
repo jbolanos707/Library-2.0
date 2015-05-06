@@ -30,13 +30,19 @@ describe Book do
     end
   end
 
-  describe '.find' do
+  describe '.find_id' do
     it 'returns a book by its ID number' do
-      test_book1 = Book.new(title: "Harry Potter", id: nil)
-      test_book1.save
       test_book2 = Book.new(title: "Harry Potter", id: nil)
       test_book2.save
-      expect(Book.find(test_book2.id())).to eq(test_book2)
+      expect(Book.find_id(test_book2.id())).to eq(test_book2)
+    end
+  end
+
+  describe '.find_author'do
+    it 'returns a book(s) by its author' do
+      test_book1 = Book.new(title: "Harry Potter", author: "J.K. Rowling", id: nil)
+      test_book1.save
+      expect(Book.find_author(test_book1.author).to eq(test_book1)
     end
   end
 
@@ -59,5 +65,3 @@ describe Book do
       expect(Book.all).to eq([test_book2])
     end
   end
-
-end
