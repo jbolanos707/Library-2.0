@@ -26,6 +26,4 @@ class Inventory
   define_method(:==) do |second_count|
     self.quantity == second_count.quantity && self.id == second_count.id
   end
-
-
 end
