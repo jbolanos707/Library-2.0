@@ -49,4 +49,15 @@ describe Book do
     end
   end
 
+  describe '.delete' do
+    it 'deletes a book from the database' do
+      test_book1 = Book.new(title: "Harry Potter", id: nil)
+      test_book1.save
+      test_book2 = Book.new(title: "Hunger Games", id: nil)
+      test_book2.save
+      test_book1.delete
+      expect(Book.all).to eq([test_book2])
+    end
+  end
+
 end
