@@ -24,4 +24,11 @@ class Book
   define_method(:==) do |other_book|
     self.title == other_book.title && self.id == other_book.id
   end
+
+  define_singleton_method(:find) do |id|
+    @id = id
+    result = DB.exec("SELECT * FROM books WHERE id = #{@id};")
+    @title = result.first.fetch("title")
+    Book.new(title: @title, id: @id)
+  end
 end
