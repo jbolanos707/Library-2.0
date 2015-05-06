@@ -8,5 +8,11 @@ describe Patron do
       expect(test_patron.name).to eq("Juan Dela Vega")
     end
   end
-  
+
+  describe '#id' do
+    it 'returns the id of the patron' do
+      test_id = Patron.new(name: "Jane", id: 1)
+      expect(test_id.id).to eq(1)
+    end
+  end
 end
