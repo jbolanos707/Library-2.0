@@ -51,8 +51,9 @@ describe Book do
       test_book.save
       test_author = Author.new(name: "J.K. Rowling", id: nil)
       test_author.save
-      test_author.update(author_ids: [test_author.id])
-      expect(test_book.authors).to eq(test_author)
+      test_book.update(author_ids: [test_author.id])
+      expect(test_book.authors).to eq([test_author])
+    end
   end
 
   describe '#authors' do
@@ -61,8 +62,8 @@ describe Book do
       test_book.save
       test_author = Author.new(name: "J.K. Rowling", id: nil)
       test_author.save
-      test_author.update(author_ids: [test_author.id])
-      expect(test_book.authors).to eq(test_author)
+      test_book.update(author_ids: [test_author.id])
+      expect(test_book.authors).to eq([test_author])
     end
   end
 
