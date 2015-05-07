@@ -56,4 +56,13 @@ describe Author do
     end
   end
 
+  describe '#delete' do
+    it ('lets you delete an author from the database') do
+      test_author = Author.new(name: "Dr. Seuss", id: nil)
+      test_author.save
+      test_author.delete
+      expect(Author.all).to eq([])
+    end
+  end
+
 end

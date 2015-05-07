@@ -37,4 +37,8 @@ class Author
     @id = self.id()
     DB.exec("UPDATE authors SET name = '#{@name}' WHERE id = #{@id}; ")
   end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM authors WHERE id = #{self.id};")
+  end
 end
