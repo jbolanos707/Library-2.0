@@ -1,10 +1,8 @@
 class Book
-  attr_reader(:title, :id, :inventory, :author)
+  attr_reader(:title, :id)
   define_method(:initialize) do |info|
     @title = info.fetch(:title)
     @id = info.fetch(:id)
-    @inventory = info.fetch(:inventory)
-    @author = info.fetch(:author)
   end
 
   define_singleton_method(:all) do
@@ -33,13 +31,6 @@ class Book
     @title = result.first.fetch("title")
     Book.new(title: @title, id: @id)
   end
-
-
-  # define_singleton_method(:find_author) do |author|
-  #   list_of_books = []
-  #   @author = author
-  #   result = DB.exec("SELECT * FROM books WHERE author = #{@author}")
-  #
 
 
   define_method(:update) do |info|

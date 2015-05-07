@@ -38,14 +38,6 @@ describe Book do
     end
   end
 
-  describe '.find_author'do
-    it 'returns a book(s) by its author' do
-      test_book1 = Book.new(title: "Harry Potter", author: "J.K. Rowling", id: nil)
-      test_book1.save
-      expect(Book.find_author(test_book1.author).to eq(test_book1)
-    end
-  end
-
   describe '.update' do
     it 'updates the name of a book' do
       test_book1 = Book.new(title: "Harry Potter", id: nil)
@@ -65,3 +57,4 @@ describe Book do
       expect(Book.all).to eq([test_book2])
     end
   end
+end
