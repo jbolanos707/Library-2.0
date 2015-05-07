@@ -4,6 +4,7 @@ require('book')
 require('patron')
 require('pry')
 require('author')
+require('inventory')
 
 
 DB = PG.connect({:dbname => 'library_test'})
@@ -13,6 +14,8 @@ RSpec.configure do |config|
     DB.exec("DELETE FROM books *;")
     DB.exec("DELETE FROM patrons *;")
     DB.exec("DELETE FROM authors *;")
+    DB.exec("DELETE FROM copies *;")
+
 
   end
 end
