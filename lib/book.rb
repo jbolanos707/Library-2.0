@@ -32,7 +32,6 @@ class Book
     Book.new(title: @title, id: @id)
   end
 
-
   define_method(:update) do |info|
     @title = info.fetch(:title, @title)
     @id = self.id
@@ -40,10 +39,8 @@ class Book
 
     info.fetch(:author_ids, []).each do |author_id|
       DB.exec("INSERT INTO authors_books (author_id, book_id) VALUES (#{author_id}, #{self.id});")
-
     end
   end
-
 
   define_method(:authors) do
     book_authors = []

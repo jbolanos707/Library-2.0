@@ -1,0 +1,10 @@
+<h2>Current Book Catalog</h2>
+
+<ul>
+    <% @books.each do |book| %>
+    <li>
+      <%= book.title %>
+    </li>
+    <% end %>
+
+</ul>

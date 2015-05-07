@@ -1,0 +1,13 @@
+<ul>
+  <% @authors.each do |author| %>
+  <li><%= author.name %></li>
+  <% end %>
+</ul>
+
+<form action="/authors" method="post">
+  <div class="form-group">
+    <label for="name">Add an author:</label>
+    <input name="name" type="text" id="name" class="form-control">
+  </div>
+<button type="submit" class="btn btn-success">Submit</button>
+</form>

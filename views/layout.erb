@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library Database</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/books">Book Catalog</a></li>
+          <li>  <a href="/authors">Author Catalog</a></li>
+          <li><a href="/librarian">Librarian</a></li>
+        </ul>
+      </div>
+      <div class="container">
+      <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

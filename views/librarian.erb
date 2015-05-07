@@ -1,0 +1,16 @@
+<h2>Current Book Catalog</h2>
+
+<ul>
+  <% @books.each do |book| %>
+  <li><a href="/librarian/<%= book.id %>"><%= book.title %></a></li>
+  <% end %>
+
+</ul>
+
+<form action="/librarian" method="post">
+  <div class="form-group">
+    <label for="title">Add a book:</label>
+    <input name="title" id="title" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

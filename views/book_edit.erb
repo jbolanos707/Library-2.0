@@ -1,0 +1,27 @@
+<h2> <%= @title %> </h2>
+<% if @authors.any? %>
+  <form action= "/librarian/<%= @book.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+   <% @authors.each do |author| %>
+      <div class="checkbox">
+        <label>
+        <input type="checkbox" name="author_ids[]" value="<%= author.id %>"><%= author.name %>
+        </label>
+     </div>
+  <% end %>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+<% end %>
+
+<% if @book.authors.any? %>
+  <h3>Here are all the authors for this book:</h3>
+
+  <ul>
+    <% @book.authors.each do |author| %>
+      <li> <%= author.name %> </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no authors yet!</p>
+<% end %>
