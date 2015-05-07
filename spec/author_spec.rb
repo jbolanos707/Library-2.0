@@ -54,6 +54,15 @@ describe Author do
       test_author.update(name: "Dr. Seuss")
       expect(test_author.name).to eq("Dr. Seuss")
     end
+
+    it 'allows you to add a book to an author' do
+      test_book = Book.new(title: "Harry Potter", id: nil)
+      test_book.save
+      test_author = Author.new(name: "J.K. Rowling", id: nil)
+      test_author.save
+      test_author.update(book_ids: [test_book.id])
+      expect(test_author.books).to eq([test_book])
+    end
   end
 
   describe '#delete' do
