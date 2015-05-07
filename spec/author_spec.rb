@@ -46,4 +46,14 @@ describe Author do
       expect(Author.find(test_author2.id)).to eq(test_author2)
     end
   end
+
+  describe '#update' do
+    it 'lets you update the authors in the database' do
+      test_author = Author.new(name: "J.K Rowling", id: nil)
+      test_author.save
+      test_author.update(name: "Dr. Seuss")
+      expect(test_author.name).to eq("Dr. Seuss")
+    end
+  end
+
 end
