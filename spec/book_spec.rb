@@ -38,12 +38,31 @@ describe Book do
     end
   end
 
-  describe '.update' do
+  describe '#update' do
     it 'updates the name of a book' do
       test_book1 = Book.new(title: "Harry Potter", id: nil)
       test_book1.save
       test_book1.update(title: "Jane Austen")
       expect(test_book1.title).to(eq("Jane Austen"))
+    end
+
+    it 'allows you to add an author to a book' do
+      test_book = Book.new(title: "Harry Potter", id: nil)
+      test_book.save
+      test_author = Author.new(name: "J.K. Rowling", id: nil)
+      test_author.save
+      test_author.update(author_ids: [test_author.id])
+      expect(test_book.authors).to eq(test_author)
+  end
+
+  describe '#authors' do
+    it 'returns all the authors of a particular book' do
+      test_book = Book.new(title: "Harry Potter", id: nil)
+      test_book.save
+      test_author = Author.new(name: "J.K. Rowling", id: nil)
+      test_author.save
+      test_author.update(author_ids: [test_author.id])
+      expect(test_book.authors).to eq(test_author)
     end
   end
 
